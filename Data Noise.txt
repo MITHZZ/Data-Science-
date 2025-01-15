@@ -1,1 +1,186 @@
-#what is data is noise
+> what is noise in  data ?
+
+1. Indicators : 
+  1.Outliers - Age above 200 age
+  2.Missing value 
+  3.Inconstitent value
+  4.Duplicate records
+  5.Irrevlent Data
+  6.Unsual patterns
+
+2.Detections
+  > statistical analysis - mean, zcore > 3, interquarterile range = Q3-Q1
+  > Visualization
+   Histograms: Detect skewness, outliers, or unusual distributions.
+   Boxplots: Quickly identify outliers in numerical data.
+   Scatter Plots: Spot noise in relationships between variables.
+   Data Validation
+  
+  > Domain Knowledge: Check if values are within realistic ranges or match domain-specific constraints.
+  Consistency Checks: Validate that relationships between features hold (e.g., age vs. birth year).
+  Correlation Analysis
+  
+  > Identify irrelevant features by calculating correlation with the target variable.
+  Low or zero correlation indicates noise.
+  
+  >Machine Learning Techniques
+  
+  >Feature Importance: Use models like Random Forests or XGBoost to identify features contributing minimally to predictions.
+  PCA (Principal Component Analysis): Detect noisy or redundant features by examining the explained variance.
+  Clustering Methods
+  
+  >Use clustering algorithms (e.g., K-Means, DBSCAN) to detect outliers as points that don't fit into clusters.
+3. How to Handle Noisy Data
+  Remove Outliers: Use statistical thresholds (e.g., Z-score or IQR) to exclude extreme values.
+  Impute Missing Values: Fill missing data using mean, median, mode, or predictive models.
+  Standardize/Normalize Data: Scale data to ensure consistency across features.
+  Feature Engineering: Remove irrelevant or redundant features using feature selection techniques.
+  Data Smoothing: Apply techniques like moving averages or Gaussian filters to reduce noise in time series data.
+  Domain Expertise: Collaborate with domain experts to identify and correct noisy entries.
+
+
+
+
+> Outlier Detection for Large Datasets ?
+Cluster-Based Methods:
+Use scalable clustering algorithms like DBSCAN, KMeans, or HDBSCAN for anomaly detection.
+Outliers can be flagged as points that don’t belong to any cluster.
+Streaming Algorithms:
+Use streaming algorithms for real-time outlier detection.
+Example: Approximate Z-score or IQR calculations for sliding windows of data.
+Isolation Forest:
+Train scalable models like Isolation Forest, which can efficiently detect anomalies in large datasets.
+
+>Key Types of Distributions ?
+Normal Distribution: Symmetric, bell-shaped. Common in natural and social sciences.
+Binomial Distribution: Discrete; counts successes in fixed trials.
+Poisson Distribution: Discrete; models rare events.
+Exponential Distribution: Continuous; models time between events.
+Uniform Distribution: All outcomes equally likely.
+
+
+
+
+> Different types of statistical analysis 
+ Sumarrize and describe main features -
+ 1. Mean, median mode - central limit theaorem
+ 2. Measure of dispersion - variance , standard devation range
+ 3. Visualization 
+ Above is called describtive analysis
+
+ Do conclusion of population from sample 
+ 1. Hypotheses test 
+ 2. Confidence interval
+ 3. Signicance test - 
+      1.Analsys of ANNOVA
+      2.Chi square test
+ These are called inference test
+
+ To identify patterns trend of the data
+ 1.correlation 
+ 2.PCA - 
+ 3.Clustering
+ These are called EDA
+
+
+  Predict the future value from past and current data
+  1. Linear analysis
+  2. Logistis analysis
+  3. ARIMA - Time series
+  This is called Predictive statistcal Analysis
+
+  Suggest action based on the prediction value
+  1.Optimization techinque 
+  2.Simulation technique
+
+  Update probablities when more data gets added or more information is available
+  1. Bayes theorem
+  2. Bayesian Inference for parameter estimation
+  3. Markov chain Monte carlo
+  This is called bayesions statistical analysis
+
+  Analyising mutliple data simultaneaouly 
+  Factor analysis - latent
+  Multi variate analysis of variance - mean
+  
+  This is called Multivariate statiscal Analysis
+
+
+  Non Parametrics Statistical Analysis
+  Purpose: Analyze data without assuming a specific distribution.
+  Mann Whitney Test
+  Whilcoxon Signed Rank test
+  khurskals Whaly's test
+  Spearmans rank correlation 
+
+
+  Survival Analysis
+  Purpose: Analyze time-to-event data.
+  Techniques:
+  Kaplan-Meier Estimator.
+  Cox Proportional Hazards Model.
+  Hazard Functions.
+
+
+
+
+>Correlation, Multicollinearity, and Causation ? 
+
+1. Correlation
+Definition:
+Correlation measures the statistical relationship or association between two or more variables. It quantifies the degree to which these variables move in relation to each other. A positive correlation means that as one variable increases, the other tends to increase, and a negative correlation means that as one variable increases, the other tends to decrease.
+
+Types of Correlation:
+Positive Correlation: When both variables increase or decrease together (e.g., height and weight).
+Negative Correlation: When one variable increases while the other decreases (e.g., age and remaining years of life).
+No Correlation: When there is no consistent pattern between the variables.
+
+Correlation Coefficient:
+Pearson’s Correlation: Measures linear relationships between two continuous variables.
+Spearman’s Rank Correlation: Measures monotonic relationships (non-linear but consistent direction).
+
+Example:
+Positive Correlation: Height and weight often have a positive correlation, as taller people tend to weigh more.
+Negative Correlation: The speed of a car and the time it takes to reach a destination have a negative correlation.
+Important Notes:
+Correlation does not imply causation.
+Correlation is a measure of association, but it doesn’t indicate which variable is influencing the other.
+
+2. Multicollinearity
+Definition:
+Multicollinearity refers to the phenomenon where two or more independent variables in a regression model are highly correlated with each other. This can cause issues in regression analysis, as it becomes difficult to determine the individual effect of each variable on the dependent variable.
+
+Problems Caused by Multicollinearity:
+Unstable Coefficients: The regression coefficients can become very sensitive to changes in the model, leading to unreliable estimates.
+Increased Variance: Multicollinearity inflates the variance of the estimated coefficients, making it harder to determine which variables are significant predictors.
+Overfitting: A model might perform well on the training data but fail to generalize due to overfitting caused by correlated predictors.
+Detecting Multicollinearity:
+Correlation Matrix: A simple method is to check the correlation between pairs of independent variables.
+Variance Inflation Factor (VIF): A VIF value greater than 10 indicates high multicollinearity.
+Example:
+In a house price prediction model, "square footage" and "number of rooms" might be highly correlated, causing multicollinearity.
+Solutions:
+Remove one of the correlated features.
+Use techniques like Principal Component Analysis (PCA) to reduce dimensionality.
+Regularization techniques like Lasso regression can help by shrinking the coefficients of less important variables.
+3. Causation
+Definition:
+Causation refers to a cause-and-effect relationship between two variables, meaning one variable directly influences the other. In contrast to correlation, which simply identifies relationships, causation implies that changes in one variable cause changes in another.
+
+Causality vs Correlation:
+Correlation: Measures association. Two variables can be correlated without one causing the other.
+Causation: Implies that one variable has a direct impact on the other. For causality, there must be a logical mechanism, time precedence (cause precedes effect), and no confounding factors.
+Causal Inference:
+Establishing causation requires experimental or observational study design and statistical techniques such as randomized controlled trials (RCTs) or causal modeling (e.g., Granger Causality or Structural Equation Modeling).
+Counterfactual Reasoning: A causal effect is determined by comparing what happens with and without the intervention.
+Example:
+Correlation: Ice cream sales and drowning deaths may be correlated (both increase in the summer).
+Causation: Smoking causes lung cancer. There is a clear causal pathway and mechanism behind this relationship.
+Causality Tests:
+Randomized Controlled Trials (RCTs): The gold standard for establishing causality.
+Granger Causality: A statistical hypothesis test used to determine if one time series can predict another.
+
+
+  
+
+
